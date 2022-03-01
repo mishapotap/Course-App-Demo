@@ -5,7 +5,7 @@ import cn from "classnames";
 import StarIcon from './star.svg';
 
 
-export const Rating = ({ isEditable = false, rating, setRating, className, ...props }: RatingProps): JSX.Element => {
+export const Rating = ({ isEditable = false, rating, setRating, ...props }: RatingProps): JSX.Element => {
     const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>)); // Создали стейт в котором как начальное значение создали массив который мы сразу заполнили 5 фрагментами
     useEffect(() => {
         constructRating(rating);
