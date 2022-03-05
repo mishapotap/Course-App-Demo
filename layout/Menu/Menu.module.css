@@ -35,7 +35,14 @@
     padding-left: 32px;
     border-left: 1px solid #dfdfdf;
 }
-.secondLevelBlock:last-child {
+.secondLevelBlock {
+    display: none;
+}
+.secondLevelBlockOpened {
+    display: block;
+}
+
+.secondLevelBlockOpened:last-child {
     margin-bottom: 20px;
 }
 
@@ -44,8 +51,8 @@
     margin-bottom: 10px;
     cursor: pointer;
     color: var(--gray-dark);
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: 300;
+    font-size: 13px;
     line-height: 19px;
 }
 .thirdLevelActive,
