@@ -9,17 +9,14 @@ import { TopLevelCategory, TopPageModel } from "../../interfaces/page.interface"
 import { ParsedUrlQuery } from "node:querystring";
 import { ProductModel } from "../../interfaces/product.interface";
 import { firstLevelMenu } from "../../helpers/helpers";
+import { TopPageComponent } from "../../page-components";
 
 
-function Course({ menu, page, products }: CourseProps): JSX.Element {
-	return (
-		<>
-			{products && products.length}
-		</>
-	);
+function TopPage({ firstCategory, page, products }: TopPageProps): JSX.Element {
+	return <TopPageComponent firstCategory={firstCategory} page={page} products={products} />;
 }
 
-export default withLayout(Course);
+export default withLayout(TopPage);
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	let paths: string[] = []; //Массив путей URL
@@ -34,7 +31,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }; // Когда мы будем получать пути мы будем делать 4 запроса
 
 
-export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
+export const getStaticProps: GetStaticProps<TopPageProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
 	if (!params) {
 		return {
 			notFound: true
@@ -73,7 +70,7 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: Ge
 	}
 };
 
-interface CourseProps extends Record<string, unknown> {
+interface TopPageProps extends Record<string, unknown> {
 	menu: MenuItem[],
 	firstCategory: TopLevelCategory,
 	page: TopPageModel,

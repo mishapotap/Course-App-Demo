@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({ params }: GetS
 			firstCategory: firstCategoryItem.id
 		}
 	};
-}; // Мы получили пропсы среди которых menu и firstCategory и передали в качестве props в компонент Search. Этот компонент Search обернут в HOC withLayout. 
+}; // Мы получили пропсы среди которых menu и firstCategory и передали в качестве props в компонент Type. Этот компонент Type обернут в HOC withLayout. 
 
 interface TypeProps extends Record<string, unknown> {
 	menu: MenuItem[],
