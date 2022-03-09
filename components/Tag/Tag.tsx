@@ -9,7 +9,7 @@ export const Tag = ({ children, size = "s", color = 'ghost', href, className, ..
         [styles.medium]: size === 'm',
         [styles.ghost]: color === 'ghost',
         [styles.red]: color === 'red',
-        [styles.grey]: color === 'grey',
+        [styles.gray]: color === 'gray',
         [styles.green]: color === 'green',
         [styles.primary]: color === 'primary',
     })}

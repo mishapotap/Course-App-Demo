@@ -11,3 +11,7 @@ export const firstLevelMenu: FirstLevelMenuItem[] = [
     { route: "books", name: "Книги", icon: <BooksIcon />, id: TopLevelCategory.Books },
     { route: "products", name: "Товары", icon: <ProductsIcon />, id: TopLevelCategory.Products },
 ];// Построили объект меню чтобы по нему прооходиться и строить меню а не хардкодить его
+
+export const priceRub = (price: number): string => price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ').concat(' ₽');
+
+// Ищем пустые строки не в начале и не в конце чтобы за ними шло число по 3 цифры но после того как мы нашли группы по 3 числа за ними бы не шло никакое другое число. И заменили это на пробел

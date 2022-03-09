@@ -1,8 +1,5 @@
 .sidebar {
     display: grid;
-    gap: 18px;
+    gap: 20px;
     align-content: flex-start;
-}
-.logo {
-    margin-top: 34px;
 }
