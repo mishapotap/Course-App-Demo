@@ -10,9 +10,6 @@
     line-height: 27px;
     align-self: center;
 }
-.vline {
-    border-left: 1px solid var(--gray-light);
-}
 .description {
     font-weight: 300;
     font-size: 18px;
