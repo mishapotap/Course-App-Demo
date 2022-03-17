@@ -23,7 +23,7 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
         // router.push Позволяет запушить новое значние url в state
     }; // Сказали перейти на путь /search и добавить query параметр который равен текущему значению поиска
 
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
         if (event.key === 'Enter') {
             goToSearch();
         }
