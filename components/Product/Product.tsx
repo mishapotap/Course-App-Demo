@@ -5,7 +5,7 @@ import { Card } from "../Card/Card";
 import { Rating } from "../Rating/Rating";
 import { Tag } from "../Tag/Tag";
 import { Button } from "../Button/Button";
-import { priceRub } from "../../helpers/helpers";
+import { declOfNumber, priceRub } from "../../helpers/helpers";
 import { Divider } from "../Divider/Divider";
 // Передаем в параграф размер и текст в качестве children и в результате получаем готовый параграф нужного размера
 
@@ -24,7 +24,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
             <div className={styles.tags}>{product.categories.map(category => <Tag className={styles.category} key={category}>{category}</Tag>)}</div>
             <div className={styles.priceTitle}>цена</div>
             <div className={styles.creditTitle}>в кредит</div>
-            <div className={styles.rateTitle}>{`${product.reviewCount} отзывов`}</div>
+            <div className={styles.rateTitle}>{`${product.reviewCount} ${declOfNumber(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}`}</div>
             <Divider className={styles.hr} />
             <div className={styles.description}>{product.description}</div>
             <div className={styles.feature}>фичи</div>

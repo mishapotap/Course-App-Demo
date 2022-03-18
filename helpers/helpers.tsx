@@ -15,3 +15,8 @@ export const firstLevelMenu: FirstLevelMenuItem[] = [
 export const priceRub = (price: number): string => price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ').concat(' ₽');
 
 // Ищем пустые строки не в начале и не в конце чтобы за ними шло число по 3 цифры но после того как мы нашли группы по 3 числа за ними бы не шло никакое другое число. И заменили это на пробел
+
+export const declOfNumber = (number: number, titles: [string, string, string]): string => {
+    const cases = [2, 0, 1, 1, 1, 2];
+    return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 5 < 5) ? number % 10 : 5]];
+}; // Алгоритм сколонения слов (готовый)
