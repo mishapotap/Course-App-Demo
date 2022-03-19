@@ -7,13 +7,15 @@ import { Tag } from "../Tag/Tag";
 import { Button } from "../Button/Button";
 import { declOfNumber, priceRub } from "../../helpers/helpers";
 import { Divider } from "../Divider/Divider";
-// Передаем в параграф размер и текст в качестве children и в результате получаем готовый параграф нужного размера
+import Image from 'next/image';
 
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
     return (
         <Card className={styles.product}>
-            <div className={styles.logo}><img src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} /></div>
+            <div className={styles.logo}>
+                <Image src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} width={70} height={70} />
+            </div>
             <div className={styles.title}>{product.title}</div>
             <div className={styles.price}>
                 {priceRub(product.price)}
@@ -27,7 +29,15 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
             <div className={styles.rateTitle}>{`${product.reviewCount} ${declOfNumber(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}`}</div>
             <Divider className={styles.hr} />
             <div className={styles.description}>{product.description}</div>
-            <div className={styles.feature}>фичи</div>
+            <div className={styles.feature}>
+                {product.characteristics.map(element => (
+                    <div className={styles.characteristics} key={element.name}>
+                        <span className={styles.characteristicsName}>{element.name}</span>
+                        <span className={styles.characteristicsDots}></span>
+                        <span className={styles.characteristicsValue}>{element.value}</span>
+                    </div>
+                ))}
+            </div>
             <div className={styles.advBlock}>
                 {product.advantages && <div className={styles.advantages}>
                     <div className={styles.advTitle}>Преимущества</div>
